@@ -8,7 +8,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// Interface -.
 type Interface interface {
 	Debug(message interface{}, args ...interface{})
 	Info(message string, args ...interface{})
@@ -17,14 +16,12 @@ type Interface interface {
 	Fatal(message interface{}, args ...interface{})
 }
 
-// Logger -.
 type Logger struct {
 	logger *logrus.Logger
 }
 
 var _ Interface = (*Logger)(nil)
 
-// New -.
 func New(level string) *Logger {
 	var l logrus.Level
 
@@ -50,27 +47,22 @@ func New(level string) *Logger {
 	}
 }
 
-// Debug -.
 func (l *Logger) Debug(message interface{}, args ...interface{}) {
 	l.msg("debug", message, args...)
 }
 
-// Info -.
 func (l *Logger) Info(message string, args ...interface{}) {
 	l.log("info", message, args...)
 }
 
-// Warn -.
 func (l *Logger) Warn(message string, args ...interface{}) {
 	l.log("warn", message, args...)
 }
 
-// Error -.
 func (l *Logger) Error(message interface{}, args ...interface{}) {
 	l.msg("error", message, args...)
 }
 
-// Fatal -.
 func (l *Logger) Fatal(message interface{}, args ...interface{}) {
 	l.msg("fatal", message, args...)
 
@@ -78,8 +70,6 @@ func (l *Logger) Fatal(message interface{}, args ...interface{}) {
 }
 
 func (l *Logger) log(level string, message string, args ...interface{}) {
-	// logArgs := []interface{}{message}
-	// logArgs = append(logArgs, args...)
 	if len(args) > 0 {
 		message = fmt.Sprintf("%s - args: %v", message, args)
 	}
