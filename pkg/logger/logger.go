@@ -78,21 +78,24 @@ func (l *Logger) Fatal(message interface{}, args ...interface{}) {
 }
 
 func (l *Logger) log(level string, message string, args ...interface{}) {
-	logArgs := []interface{}{message}
-	logArgs = append(logArgs, args...)
+	// logArgs := []interface{}{message}
+	// logArgs = append(logArgs, args...)
+	if len(args) > 0 {
+		message = fmt.Sprintf("%s - args: %v", message, args)
+	}
 	switch strings.ToLower(level) {
 	case "debug":
-		l.logger.Debug(logArgs...)
+		l.logger.Debug(message)
 	case "info":
-		l.logger.Info(logArgs...)
+		l.logger.Info(message)
 	case "warn":
-		l.logger.Warn(logArgs...)
+		l.logger.Warn(message)
 	case "error":
-		l.logger.Error(logArgs...)
+		l.logger.Error(message)
 	case "fatal":
-		l.logger.Fatal(logArgs...)
+		l.logger.Fatal(message)
 	default:
-		l.logger.Info(logArgs...)
+		l.logger.Info(message)
 	}
 }
 
