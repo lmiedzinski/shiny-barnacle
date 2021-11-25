@@ -1,0 +1,44 @@
+definitions:
+  apiv1.getHelloWorldsResponse:
+    properties:
+      helloWorldMessages:
+        items:
+          $ref: '#/definitions/entity.HelloWorldDto'
+        type: array
+    type: object
+  apiv1.response:
+    properties:
+      error:
+        example: message
+        type: string
+    type: object
+  entity.HelloWorldDto:
+    properties:
+      message:
+        example: Hello World!
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /hello-world:
+    get:
+      consumes:
+      - application/json
+      description: Show all known hello world messages
+      operationId: getHelloWorlds
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/apiv1.getHelloWorldsResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/apiv1.response'
+      summary: Show hello world messages
+      tags:
+      - helloworld
+swagger: "2.0"

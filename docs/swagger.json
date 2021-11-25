@@ -1,0 +1,69 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/hello-world": {
+            "get": {
+                "description": "Show all known hello world messages",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "helloworld"
+                ],
+                "summary": "Show hello world messages",
+                "operationId": "getHelloWorlds",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/apiv1.getHelloWorldsResponse"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/apiv1.response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "apiv1.getHelloWorldsResponse": {
+            "type": "object",
+            "properties": {
+                "helloWorldMessages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/entity.HelloWorldDto"
+                    }
+                }
+            }
+        },
+        "apiv1.response": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string",
+                    "example": "message"
+                }
+            }
+        },
+        "entity.HelloWorldDto": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example": "Hello World!"
+                }
+            }
+        }
+    }
+}

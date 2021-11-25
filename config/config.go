@@ -11,7 +11,7 @@ type Config struct {
 
 func GetConfig() *Config {
 	return &Config{
-		PortNumber:               getEnv("CFG_PORTNUMBER", "80"),
+		PortNumber:               getEnv("CFG_PORTNUMBER", "8080"),
 		BaseUrl:                  getEnv("CFG_BASEURL", "/"),
 		LogLevel:                 getEnv("CFG_LOGLEVEL", "info"),
 		PostgresConnectionString: getEnv("CFG_POSTGRESCONNECTIONSTRING", ""),
