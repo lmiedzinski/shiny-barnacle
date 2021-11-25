@@ -17,4 +17,6 @@ func Run(cfg *config.Config) {
 	}
 	defer pg.Close()
 
+	// helloWorldUseCase := usecase.NewHelloWorldUseCase(repository.NewHelloWorldPostgresRepository(pg))
+
 }
