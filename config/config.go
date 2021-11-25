@@ -3,16 +3,18 @@ package config
 import "os"
 
 type Config struct {
-	PortNumber string
-	BaseUrl    string
-	LogLevel   string
+	PortNumber               string
+	BaseUrl                  string
+	LogLevel                 string
+	PostgresConnectionString string
 }
 
 func GetConfig() *Config {
 	return &Config{
-		PortNumber: getEnv("CFG_PORTNUMBER", "80"),
-		BaseUrl:    getEnv("CFG_BASEURL", "/"),
-		LogLevel:   getEnv("CFG_LOGLEVEL", "info"),
+		PortNumber:               getEnv("CFG_PORTNUMBER", "80"),
+		BaseUrl:                  getEnv("CFG_BASEURL", "/"),
+		LogLevel:                 getEnv("CFG_LOGLEVEL", "info"),
+		PostgresConnectionString: getEnv("CFG_POSTGRESCONNECTIONSTRING", ""),
 	}
 }
 
