@@ -14,7 +14,7 @@ func GetConfig() *Config {
 		PortNumber:               getEnv("CFG_PORTNUMBER", "8080"),
 		BaseUrl:                  getEnv("CFG_BASEURL", "/"),
 		LogLevel:                 getEnv("CFG_LOGLEVEL", "info"),
-		PostgresConnectionString: getEnv("CFG_POSTGRESCONNECTIONSTRING", ""),
+		PostgresConnectionString: getEnv("CFG_POSTGRESCONNECTIONSTRING", "postgres://postgres:mysecretpassword@localhost:5432/hw_database"),
 	}
 }
 
