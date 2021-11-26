@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/lmiedzinski/shiny-barnacle/config"
+	"github.com/lmiedzinski/shiny-barnacle/internal/app"
+)
 
 func main() {
-	fmt.Println("Hello World!")
+	cfg := config.GetConfig()
+	app.Run(cfg)
 }
