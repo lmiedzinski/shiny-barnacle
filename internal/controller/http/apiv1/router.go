@@ -12,8 +12,6 @@ import (
 	"github.com/lmiedzinski/shiny-barnacle/pkg/logger"
 )
 
-// NewRouter -.
-// Swagger spec:
 // @title       Shiny Barnacle API
 // @description Golang microservice example
 // @version     1.0

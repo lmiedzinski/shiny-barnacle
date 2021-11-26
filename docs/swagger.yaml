@@ -1,3 +1,4 @@
+basePath: /v1
 definitions:
   apiv1.getHelloWorldsResponse:
     properties:
@@ -18,8 +19,12 @@ definitions:
         example: Hello World!
         type: string
     type: object
+host: localhost:8080
 info:
   contact: {}
+  description: Golang microservice example
+  title: Shiny Barnacle API
+  version: "1.0"
 paths:
   /hello-world:
     get:
